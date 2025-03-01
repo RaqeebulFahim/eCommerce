@@ -6,10 +6,16 @@
 * Date: 24/02/2025 14:05:08
 * Contact: towhid1@outlook.com
 */
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
-class Product extends Model{
 
+class Product extends Model
+{
 
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
 }
-?>

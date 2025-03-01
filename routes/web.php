@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
 
 
 
+Route::view('front', 'layout.frontend.main');
+
+Route::get('/ecom-shop',  [ProductController::class,'shop']);
+
 
 
 Route::resource('adjustmenttypes', AdjustmentTypeController::class);
@@ -74,6 +78,6 @@ Route::resource('wishlists', WishlistController::class);
 
 
 
-Route::view('front', 'layout.frontend.main');
+
 
 require __DIR__.'/auth.php';
