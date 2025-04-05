@@ -1,3 +1,15 @@
+
+@if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
+@if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
+@endif
+
 <div class="tf-top-bar bg_white line">
     <div class="px_15 lg-px_40">
         <div class="tf-top-bar_wrap grid-3 gap-30 align-items-center">
@@ -62,7 +74,7 @@
 </div>
 <!-- /Top Bar -->
 <!-- Header -->
-<header id="header" class="header-default header-absolute">
+<header id="header" class="header-default header-absolute mb-0">
     <div class="px_15 lg-px_40">
         <div class="row wrapper-header align-items-center">
             <div class="col-md-4 col-3 tf-lg-hidden">
@@ -76,7 +88,7 @@
                 </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-                <a href="{{url('/front')}}" class="logo-header">
+                <a href="{{url('/')}}" class="logo-header">
                     <img src="{{ asset('front_assets') }}/images/logo/logo.svg" alt="logo" class="logo">
                 </a>
             </div>
@@ -84,7 +96,7 @@
                 <nav class="box-navigation text-center">
                     <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                         <li class="menu-item">
-                            <a href="{{url('/front')}}" class="item-link">Home</a>
+                            <a href="{{url('/')}}" class="item-link">Home</a>
                             {{-- <i class="icon icon-arrow-down"></i> --}}
                             {{-- <div class="sub-menu mega-menu">
                                 <div class="container">
@@ -879,7 +891,8 @@
                             </div> --}}
                         </li>
                         <li class="menu-item position-relative">
-                            <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
+                            <a href="{{url('/ecom-shop')}}" class="item-link">Pages</a>
+                            {{-- <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
                             <div class="sub-menu submenu-default">
                                 <ul class="menu-list">
                                     <li>
@@ -999,10 +1012,11 @@
                                     </li>
 
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                         <li class="menu-item position-relative">
-                            <a href="#" class="item-link">Blog<i class="icon icon-arrow-down"></i></a>
+                            <a href="{{url('/ecom-shop')}}" class="item-link">Blog</a>
+                            {{-- <a href="#" class="item-link">Blog<i class="icon icon-arrow-down"></i></a>
                             <div class="sub-menu submenu-default">
                                 <ul class="menu-list">
                                     <li><a href="blog-grid.html" class="menu-link-text link text_black-2">Grid
@@ -1016,11 +1030,16 @@
                                     <li><a href="blog-detail.html"
                                             class="menu-link-text link text_black-2">Single Post</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                         <li class="menu-item"><a
                                 href="{{url('/ecom-shop')}}"
-                                class="item-link">Buy now</a></li>
+                                class="item-link">Buy now</a>
+                        </li>
+                        <li class="menu-item"><a
+                                href="{{url('/admin/dashboard')}}"
+                                class="item-link">Admin Dashboard</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -1035,7 +1054,7 @@
                                 class="icon icon-heart"></i><span class="count-box">0</span></a></li>
                     <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal"
                             class="nav-icon-item"><i class="icon icon-bag"></i><span
-                                class="count-box">0</span></a></li>
+                                class="count-box cartlength">0</span></a></li>
                 </ul>
             </div>
         </div>

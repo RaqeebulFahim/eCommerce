@@ -1,9 +1,11 @@
 
 {{-- @props(['product'=> null]) --}}
 
+
+
 <div class="card-product grid" data-availability="In stock" data-brand="Ecomus">
     <div class="card-product-wrapper">
-        <a href="product-detail.html" class="product-img">
+        <a href="{{'./product-details'}}" class="product-img">
              @foreach ($product->images as $item)
              @php
 
@@ -14,8 +16,10 @@
 
              @endforeach
         </a>
+
+
         <div class="list-product-btn absolute-2">
-            <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+            <a data-product="{{json_encode($product, JSON_HEX_APOS | JSON_HEX_QUOT)}}" href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                 <span class="icon icon-bag"></span>
                 <span class="tooltip">Quick Add</span>
             </a>
@@ -36,8 +40,8 @@
         </div>
     </div>
     <div class="card-product-info">
-        <a href="product-detail.html" class="title link">{{$product->name}}</a>
-        <span class="price current-price">${{ $product->offer_price ?? 200}}</span>
+        <a href="{{'./product-details'}}" class="title link">{{$product->name}}</a>
+        <span class="price current-price ">${{ $product->price ?? 00}}</span>
         <ul class="list-color-product">
             <li class="list-color-item color-swatch active">
                 <span class="tooltip">Orange</span>
@@ -57,3 +61,5 @@
         </ul>
     </div>
 </div>
+
+

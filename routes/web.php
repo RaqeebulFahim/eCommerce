@@ -24,6 +24,7 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionTypeController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\ContactController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,13 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
-
-Route::view('front', 'layout.frontend.main');
-
-Route::get('/ecom-shop',  [ProductController::class,'shop']);
-
 
 
 Route::resource('adjustmenttypes', AdjustmentTypeController::class);
@@ -73,8 +67,19 @@ Route::resource('stocks', StockController::class);
 Route::resource('suppliers', SupplierController::class);
 Route::resource('transactiontypes', TransactionTypeController::class);
 Route::resource('wishlists', WishlistController::class);
+Route::resource('contacts', ContactController::class);
 
 
+Route::prefix('/')->group(function (){
+
+    Route::view('/', 'pages.ecomfront.index');
+    Route::get('/ecom-shop',  [ProductController::class,'ecomshop']);
+    Route::view('product-details', 'pages.ecomfront.product-details');
+    Route::view('checkout', 'pages.ecomfront.checkout');
+    Route::view('view-cart', 'pages.ecomfront.view-cart');
+    Route::view('payment-confirmation', 'pages.ecomfront.payment-confirmation');
+    Route::view('payment-failure', 'pages.ecomfront.payment-failure');
+});
 
 
 

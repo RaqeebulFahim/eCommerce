@@ -11,5 +11,22 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model{
 
 
+
+public function customer()
+{
+    return $this->belongsTo(Customer::class);
+}
+
+public function supplier()
+{
+    return $this->belongsTo(Supplier::class);
+}
+
+public function orderDetails()
+{
+    return $this->hasMany(OrderDetail::class);
+}
+
+
 }
 ?>

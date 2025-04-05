@@ -33,9 +33,9 @@ class OrderDetailController extends Controller{
 		$orderdetail->price=$request->price;
 		$orderdetail->discount=$request->discount;
 		$orderdetail->subtotal=$request->subtotal;
-date_default_timezone_set("Asia/Dhaka");
+        date_default_timezone_set("Asia/Dhaka");
 		$orderdetail->created_at=date('Y-m-d H:i:s');
-date_default_timezone_set("Asia/Dhaka");
+        date_default_timezone_set("Asia/Dhaka");
 		$orderdetail->updated_at=date('Y-m-d H:i:s');
 
 		$orderdetail->save();

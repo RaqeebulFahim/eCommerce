@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 class StockController extends Controller{
 	public function index(){
-		$stocks = Stock::paginate(10);
+        $stocks = Stock::selectRaw(' product_id, SUM(quantity) as total_qty')
+        ->with([
+            'product:id,name,price'
+        ])
+        ->groupBy('product_id')
+        ->paginate(10);
+
+        // echo json_encode( $stocks);
 		return view("pages.erp.stock.index",["stocks"=>$stocks]);
 	}
 	public function create(){
@@ -29,7 +36,7 @@ class StockController extends Controller{
 		$stock->product_id=$request->product_id;
 		$stock->transaction_type=$request->transaction_type;
 		$stock->quantity=$request->quantity;
-date_default_timezone_set("Asia/Dhaka");
+        date_default_timezone_set("Asia/Dhaka");
 		$stock->updated_at=date('Y-m-d H:i:s');
 
 		$stock->save();

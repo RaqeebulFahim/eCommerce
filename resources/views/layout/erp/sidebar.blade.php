@@ -34,7 +34,7 @@
                         <div class="collapse " id="sidebarDashboards">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/front') }}">Front</a>
+                                    <a class="nav-link" href="{{ url('/') }}">Front</a>
                                 </li><!--end nav-item-->
                                 <li class="nav-item">
                                     <a class="nav-link" href="ecommerce-index.html">Ecommerce</a>
@@ -115,6 +115,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/shippings') }}">Shipping</a>
                                 </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contacts') }}">Orders</a>
+                                </li>
                             </ul><!--end nav-->
                         </div>
                     </li><!--end nav-item-->

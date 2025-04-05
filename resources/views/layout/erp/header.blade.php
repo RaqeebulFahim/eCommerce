@@ -264,7 +264,7 @@
                     </button>
                 </li>
                 <li class="mx-3 welcome-text">
-                    <h3 class="mb-0 fw-bold text-truncate">Good Morning, James!</h3>
+                    <h3 class="mb-0 fw-bold text-truncate">Wecome to Raqeebul's Ecommerce Project!</h3>
                     <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
                 </li>
             </ul>
@@ -476,16 +476,16 @@
                 <li class="dropdown topbar-item">
                     <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
-                        <img src="{{asset('assets')}}/images/users/avatar-1.jpg" alt="" class="thumb-lg rounded-circle">
+                        <img src="{{asset('assets')}}/images/users/Raqeebul_Fahim.png" alt="" class="thumb-lg rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-end py-0">
                         <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                             <div class="flex-shrink-0">
-                                <img src="{{asset('assets')}}/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                                <img src="{{asset('assets')}}/images/users/Raqeebul_Fahim.png" alt="" class="thumb-md rounded-circle">
                             </div>
                             <div class="flex-grow-1 ms-2 text-truncate align-self-center">
-                                <h6 class="my-0 fw-medium text-dark fs-13">William Martin</h6>
-                                <small class="text-muted mb-0">Front End Developer</small>
+                                <h6 class="my-0 fw-medium text-dark fs-13">Raqeebul Fahim</h6>
+                                <small class="text-muted mb-0">Full Stack Web Developer</small>
                             </div><!--end media-body-->
                         </div>
                         <div class="dropdown-divider mt-0"></div>

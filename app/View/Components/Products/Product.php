@@ -26,5 +26,6 @@ class product extends Component
     public function render(): View|Closure|string
     {
         return view('components.products.product');
+        // return view('ecomfront.addtocart');
     }
 }

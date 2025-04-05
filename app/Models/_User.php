@@ -6,10 +6,10 @@
 * Date: 24/02/2025 14:06:01
 * Contact: towhid1@outlook.com
 */
-namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
-class User extends Model{
+// namespace App\Models;
+// use Illuminate\Database\Eloquent\Model;
+// class User extends Model{
 
 
-}
-?>
+// }
+// ?>

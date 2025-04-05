@@ -10,51 +10,61 @@
 @extends('layout.erp.app')
 @section('title','Manage Order')
 @section('style')
+<style>
+    /* .w-5{
+        width: 10px !important;
+    }
 
-
+    svg{
+        display: none;
+        visibility: hidden;
+    } */
+</style>
 @endsection
 @section('page')
-<a href="{{route('orders.create')}}">New Order</a>
+<a href="{{ route('orders.create') }}">New Order</a>
 <table class="table table-hover text-nowrap">
-	<thead>
-		<tr>
-			<th>Id</th>
-			<th>Customer Id</th>
-			<th>Total Price</th>
-			<th>Order Status Id</th>
-			<th>Payment Status Id</th>
-			<th>Created At</th>
-			<th>Updated At</th>
-
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-	@foreach($orders as $order)
-		<tr>
-			<td>{{$order->id}}</td>
-			<td>{{$order->customer_id}}</td>
-			<td>{{$order->total_price}}</td>
-			<td>{{$order->order_status_id}}</td>
-			<td>{{$order->payment_status_id}}</td>
-			<td>{{$order->created_at}}</td>
-			<td>{{$order->updated_at}}</td>
-
-			<td>
-			<form action = "{{route('orders.destroy',$order->id)}}" method = "post">
-				<a class= 'btn btn-primary' href = "{{route('orders.show',$order->id)}}">View</a>
-				<a class= 'btn btn-success' href = "{{route('orders.edit',$order->id)}}"> Edit </a>
-				@method('DELETE')
-				@csrf
-				<input type = "submit" class="btn btn-danger" name = "delete" value = "Delete" />
-			</form>
-			</td>
-		</tr>
-	@endforeach
-	</tbody>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Total Price</th>
+            <th>Order Status</th>
+            <th>Payment Status</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($orders as $order)
+        <tr>
+            <td>{{ $order->id }}</td>
+            <td>{{ $order->customer_id }}</td>
+            <td>{{ $order->total_price }}</td>
+            <td>{{ $order->order_status_id }}</td>
+            <td>{{ $order->payment_status_id }}</td>
+            <td>{{ $order->created_at }}</td>
+            <td>{{ $order->updated_at }}</td>
+            <td>
+                <form action="{{ route('orders.destroy', $order->id) }}" method="post">
+                    <a class='btn btn-primary' href="{{ route('orders.show', $order->id) }}">View</a>
+                    <a class='btn btn-success' href="{{ route('orders.edit', $order->id) }}">Edit</a>
+                    @method('DELETE')
+                    @csrf
+                    <input type="submit" class="btn btn-danger" value="Delete" />
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
 </table>
-@endsection
-@section('script')
 
+<div class="d-flex justify-content-center">
+    {{ $orders->links() }}
+</div>
+@endsection
+
+@section('script')
 
 @endsection

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Color;
+use App\Models\Size;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product_Image;
@@ -80,12 +82,17 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route("products.index")->with('success', 'Deleted Successfully.');
     }
-    public function shop()
+
+    public function ecomshop()
     {
         $products= Product::with('images')->get();
+        $color= Color::orderBy("id","asc")->limit(3)->get();
+        $size= Size::orderBy("id","asc")->limit(4)->get();
+        // $products= Product::with('sizes')->get();
 
-        //  echo json_encode($products);
+        //   echo json_encode($color);
 
-         return view('pages.ecom-shop' , compact('products'));
+         return view('pages.ecomfront.ecom-shop' , compact('products', 'color','size'));
+
     }
 }
