@@ -28,7 +28,7 @@ class UserController extends Controller
         try {
             $user=new User;
             $user->name=$request->name;
-            $user->roll_id=$request->roll_id;
+            $user->role_id=$request->role_id;
             $user->email=$request->email;
             
             date_default_timezone_set("Asia/Dhaka");
@@ -38,11 +38,11 @@ class UserController extends Controller
             if (isset($request->photo)) {
                 $user->photo=$request->photo;
             }
-            $user->moblie=$request->mobile;
+            $user->mobile=$request->mobile;
             $user->save();
 
             if (isset($request->photo)) {
-               $imageName=$user->id.'.'.$request->photo->extension();
+               $imageName=$user->name.'.'.$request->photo->extension();
                $user->photo=$imageName;
                $user->update();
                $request->photo->move(public_path('img'),$imageName);
