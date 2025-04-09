@@ -8,6 +8,7 @@ use App\Http\Controllers\api\OrderProcessController;
 use App\Http\Controllers\Api\VueCrud\BrandController;
 use App\Http\Controllers\api\vuecrud\ColorController;
 use App\Http\Controllers\Api\VueCrud\RoleController;
+use App\Http\Controllers\api\vuecrud\StockController;
 use App\Http\Controllers\Api\VueCrud\UserController;
 
 Route::get("/order", [OrderProcessController::class,'index']);
@@ -21,3 +22,4 @@ Route::apiResource("/roles", RoleController::class);
 Route::apiResource("/colors", ColorController::class);
 Route::apiResource("/brands", BrandController::class);
 Route::apiResource("/users", UserController::class);
+Route::apiResource("/stocks", StockController::class);
