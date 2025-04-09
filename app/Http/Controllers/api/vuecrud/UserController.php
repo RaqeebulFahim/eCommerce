@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\VueCrud;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -30,6 +31,10 @@ class UserController extends Controller
             $user->name=$request->name;
             $user->role_id=$request->role_id;
             $user->email=$request->email;
+           
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
             
             date_default_timezone_set("Asia/Dhaka");
             $user->created_at=date('Y-m-d H:i:s');
