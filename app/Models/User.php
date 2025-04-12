@@ -6,8 +6,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;// this sould be imported
 
-class User extends Authenticatable
+
+//add the JWTSubject implementation class
+// class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -53,4 +57,20 @@ class User extends Authenticatable
     function role(){
         return $this->belongsTO(Role::class);
     }
+
+
+    //put these methods at the bottom of your class body
+  
+   public function getJWTIdentifier()
+   {
+     return $this->getKey();
+   }
+
+   public function getJWTCustomClaims()
+   {
+     return [
+       'email'=>$this->email,
+       'name'=>$this->name
+     ];
+   }
 }
