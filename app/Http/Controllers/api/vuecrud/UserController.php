@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $query = User::query();
+        $query = User::query()->with('role');
+        // $query = User::with('role');
+
         if ($request->search) {
            $query->where('name', 'like',"%{$request->search}%");
         }

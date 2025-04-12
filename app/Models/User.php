@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     }
 
-    // function role(){
-    //     return $this->belongsTO(Role)
-    // }
+    function role(){
+        return $this->belongsTO(Role::class);
+    }
 }
