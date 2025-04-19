@@ -10,6 +10,7 @@ use App\Http\Controllers\api\OrderProcessController;
 use App\Http\Controllers\Api\VueCrud\BrandController;
 use App\Http\Controllers\api\vuecrud\CategoryController;
 use App\Http\Controllers\api\vuecrud\ColorController;
+use App\Http\Controllers\api\vuecrud\ProductController as VuecrudProductController;
 use App\Http\Controllers\Api\VueCrud\RoleController;
 use App\Http\Controllers\api\vuecrud\StockController;
 use App\Http\Controllers\Api\VueCrud\UserController;
@@ -28,6 +29,7 @@ Route::apiResource("/brands", BrandController::class);
 Route::apiResource("/users", UserController::class);
 Route::apiResource("/stocks", StockController::class);
 Route::apiResource("/category", CategoryController::class);
+Route::get("/ecom/products",[ VuecrudProductController::class, 'index']);
 
 
 
