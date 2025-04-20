@@ -14,7 +14,7 @@
 
 @endsection
 @section('page')
-<a href="{{route('productimages.create')}}">New ProductImage</a>
+{{-- <a href="{{route('productimages.create')}}">New ProductImage</a> --}}
 <table class="table table-hover text-nowrap">
 	<thead>
 		<tr>
@@ -37,9 +37,9 @@
 			<td>{{$productimage->created_at}}</td>
 
 			<td>
-			<form action = "{{route('productimages.destroy',$productimage->id)}}" method = "post">
-				<a class= 'btn btn-primary' href = "{{route('productimages.show',$productimage->id)}}">View</a>
-				<a class= 'btn btn-success' href = "{{route('productimages.edit',$productimage->id)}}"> Edit </a>
+			{{-- <form action = "{{route('productimages.destroy',$productimage->id)}}" method = "post"> --}}
+				{{-- <a class= 'btn btn-primary' href = "{{route('productimages.show',$productimage->id)}}">View</a> --}}
+				{{-- <a class= 'btn btn-success' href = "{{route('productimages.edit',$productimage->id)}}"> Edit </a> --}}
 				@method('DELETE')
 				@csrf
 				<input type = "submit" class="btn btn-danger" name = "delete" value = "Delete" />

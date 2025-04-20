@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\VueCrud\BrandController;
 use App\Http\Controllers\api\vuecrud\CategoryController;
 use App\Http\Controllers\api\vuecrud\ColorController;
 use App\Http\Controllers\api\vuecrud\ProductController as VuecrudProductController;
+use App\Http\Controllers\api\vuecrud\ProductImageController;
 use App\Http\Controllers\Api\VueCrud\RoleController;
 use App\Http\Controllers\api\vuecrud\StockController;
 use App\Http\Controllers\Api\VueCrud\UserController;
@@ -23,6 +24,12 @@ Route::get("/products", [ProductController::class,'index']);
 Route::get("/contacts", [ContactController::class,'index']);
 Route::post("/contacts/store", [ContactController::class,'store']);
 
+
+
+Route::get("/vueimages",[ ProductImageController::class, 'index']);
+
+
+
 Route::apiResource("/roles", RoleController::class)->middleware("auth:api");
 Route::apiResource("/colors", ColorController::class);
 Route::apiResource("/brands", BrandController::class);
@@ -30,7 +37,7 @@ Route::apiResource("/users", UserController::class);
 Route::apiResource("/stocks", StockController::class);
 Route::apiResource("/category", CategoryController::class);
 Route::get("/ecom/products",[ VuecrudProductController::class, 'index']);
-
+Route::post("cartData/process", [VuecrudProductController::class,'process']);
 
 
 

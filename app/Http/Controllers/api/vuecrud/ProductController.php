@@ -20,11 +20,22 @@ class ProductController extends Controller
     public function index()
     {
         try {
-            $products = Product::all();
+            $products = Product::with(['images'])->get();
             if (!$products) {
                 $products="No data Found";
             }
             return response()->json(["products"=>$products]);
+        } catch (\Throwable $th) {
+            return response()->json(["error"=>$th->getMessage()]);
+        }
+    
+      
+    }
+    public function process(Request $request)
+    {
+        try {
+           
+            return response()->json(["process"=>$request->all()]);
         } catch (\Throwable $th) {
             return response()->json(["error"=>$th->getMessage()]);
         }
