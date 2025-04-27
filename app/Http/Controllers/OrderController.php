@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 class OrderController extends Controller{
 	public function index(){
-		$orders = Order::with("orderStatus")->paginate(10);
+		$orders = Order::with("orderStatus","paymentStatus")->paginate(10);
 		// echo "<pre>";
 		// print_r($orders);
 		return view("pages.erp.order.index", ["orders"=>$orders]);

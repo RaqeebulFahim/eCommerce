@@ -30,6 +30,10 @@ public function orderStatus()
 {
     return $this->belongsTo(OrderStatus::class);
 }
+public function paymentStatus()
+{
+    return $this->belongsTo(PaymentStatus::class);
+}
 
 
 }

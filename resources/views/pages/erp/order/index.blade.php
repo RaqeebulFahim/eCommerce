@@ -43,7 +43,7 @@
             <td>{{ $order->customer_id }}</td>
             <td>{{ $order->total_price }}</td>
             <td>{{ $order->orderStatus->name }}</td>
-            <td>{{ $order->payment_status_id }}</td>
+            <td>{{ $order->paymentStatus?->name }}</td>
             <td>{{ $order->created_at }}</td>
             <td>{{ $order->updated_at }}</td>
             <td>
