@@ -26,6 +26,10 @@ public function orderDetails()
 {
     return $this->hasMany(OrderDetail::class);
 }
+public function orderStatus()
+{
+    return $this->belongsTo(OrderStatus::class);
+}
 
 
 }

@@ -11,20 +11,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Customer;
 use App\Models\Order_Status;
+use App\Models\OrderStatus;
 use App\Models\Payment_Status;
-
+use App\Models\PaymentStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 class OrderController extends Controller{
 	public function index(){
-		$orders = Order::paginate(10);
+		$orders = Order::with("orderStatus")->paginate(10);
+		// echo "<pre>";
+		// print_r($orders);
 		return view("pages.erp.order.index", ["orders"=>$orders]);
 	}
 
 	public function create(){
-		return view("pages.erp.order.create",["customers"=>Customer::all(),"order_statuss"=>Order_Status::all(),"payment_statuss"=>Payment_Status::all()]);
+		return view("pages.erp.order.create",["customers"=>Customer::all(),"order_statuss"=>OrderStatus::all(),"payment_statuss"=>PaymentStatus::all()]);
 	}
 	public function store(Request $request){
 		//Order::create($request->all());
@@ -47,7 +50,7 @@ date_default_timezone_set("Asia/Dhaka");
 		return view("pages.erp.order.show",["order"=>$order]);
 	}
 	public function edit(Order $order){
-		return view("pages.erp.order.edit",["order"=>$order,"customers"=>Customer::all(),"order_statuss"=>Order_Status::all(),"payment_statuss"=>Payment_Status::all()]);
+		return view("pages.erp.order.edit",["order"=>$order,"customers"=>Customer::all(),"order_statuss"=>OrderStatus::all(),"payment_statuss"=>PaymentStatus::all()]);
 	}
 	public function update(Request $request,Order $order){
 		//Order::update($request->all());
