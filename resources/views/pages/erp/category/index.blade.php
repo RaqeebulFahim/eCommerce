@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('categorys.create')}}">New Category</a>
+<a class="btn btn-primary mb-1" href="{{route('categorys.create')}}">New Category</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
@@ -49,6 +49,9 @@
 	@endforeach
 	</tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{ $categorys->links() }}
+</div>
 @endsection
 @section('script')
 

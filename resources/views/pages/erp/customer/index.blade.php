@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('customers.create')}}">New Customer</a>
+<a class="btn btn-primary mb-1" href="{{route('customers.create')}}">New Customer</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
@@ -57,6 +57,9 @@
 	@endforeach
 	</tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{ $customers->links() }}
+</div>
 @endsection
 @section('script')
 

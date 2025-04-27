@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('stocks.create')}}">New Stock</a>
+<a class="btn btn-primary mb-1" href="{{route('stocks.create')}}">New Stock</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 
 			<th>Product Id</th>

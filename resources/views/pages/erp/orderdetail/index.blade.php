@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('orderdetails.create')}}">New OrderDetail</a>
+<a class="btn btn-primary mb-1" href="{{route('orderdetails.create')}}">New OrderDetail</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 			<th>Id</th>
 			<th>Order Id</th>
@@ -57,6 +57,9 @@
 	@endforeach
 	</tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{ $orderdetails->links() }}
+</div>
 @endsection
 @section('script')
 

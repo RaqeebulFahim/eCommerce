@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('promotions.create')}}">New Promotion</a>
+<a class="btn btn-primary mb-1" href="{{route('promotions.create')}}">New Promotion</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 			<th>Id</th>
 			<th>Code</th>
@@ -51,6 +51,9 @@
 	@endforeach
 	</tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{ $promotions->links() }}
+</div>
 @endsection
 @section('script')
 

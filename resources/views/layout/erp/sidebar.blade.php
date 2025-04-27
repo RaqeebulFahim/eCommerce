@@ -3,7 +3,7 @@
     <div class="brand">
         <a href="{{ url('/admin/dashboard') }}" class="logo">
             <span>
-                <img src="{{ asset('assets') }}/images/raqeebul_fahim.png" alt="logo-small" class="logo-sm">
+                <img src="{{ asset('assets') }}/images/logo-sm.png" alt="logo-small" class="logo-sm">
             </span>
             <span class="">
                 <img src="{{ asset('assets') }}/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">

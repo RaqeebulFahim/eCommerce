@@ -22,9 +22,9 @@
 </style>
 @endsection
 @section('page')
-<a href="{{ route('orders.create') }}">New Order</a>
+<a class="btn btn-primary mb-1" href="{{ route('orders.create') }}">New Order</a>
 <table class="table table-hover text-nowrap">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>ID</th>
             <th>Customer ID</th>

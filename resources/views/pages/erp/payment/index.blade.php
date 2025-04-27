@@ -14,9 +14,9 @@
 
 @endsection
 @section('page')
-<a href="{{route('payments.create')}}">New Payment</a>
+<a class="btn btn-primary mb-1" href="{{route('payments.create')}}">New Payment</a>
 <table class="table table-hover text-nowrap">
-	<thead>
+	<thead class="table-dark">
 		<tr>
 			<th>Id</th>
 			<th>Order Id</th>
@@ -53,6 +53,9 @@
 	@endforeach
 	</tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{ $payments->links() }}
+</div>
 @endsection
 @section('script')
 
